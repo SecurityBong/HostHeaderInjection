@@ -17,7 +17,7 @@ chmod +x HostHeaderInj.sh
 To run the script do use this command:
 ```
   # Test a single URL
-./HostHeaderInj.sh http://example.com
+./HostHeaderInj.sh https://example.com
 
 # Test multiple URLs from a file
 ./HostHeaderInj.sh urls.txt
