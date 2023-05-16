@@ -8,7 +8,7 @@ It is an automated host header injection attacking and scanning tool. It is base
 
 **Important:**
 It is only applicable to HTTPS. It is still in developement phase.
-The script will go over each URL, send a request with a modified host header ("Host: malicious.com"), and check if the response contains the modified host. If it does, it will print "Vulnerable" in red color; otherwise, it will print "Not Vulnerable" in green color. It will also print the header which it uses for the attacking.
+The script will go over each URL, send a request with a modified host header ("Host: malicious.com"), and check if the response contains the modified host. If it does, it will print "Vulnerable" in red color; otherwise, it will print "Not Vulnerable" in green color. It will also print the header which it uses for the successfull attacking.
 
 **Note:**
 chmod +x HostHeaderInj.sh
