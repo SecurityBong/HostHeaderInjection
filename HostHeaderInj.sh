@@ -8,8 +8,6 @@ NC='\033[0m' # No Color
 echo -e "Author: ${RED}Security Bong${NC}"
 echo ""
 
-# Rest of the script goes here...
-
 if [ -z "$1" ]; then
   echo "Please provide a URL or a file containing URLs."
   exit 1
@@ -26,6 +24,9 @@ fi
 # List of payloads to test
 payloads=("malicious.com" "localhost" "127.0.0.1" "example.com")
 
+# List of additional headers payloads to test
+headers=("X-Forwarded-Host: malicious.com" "Referer: malicious.com" "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537")
+
 for url in $urls; do
   echo "Testing: $url"
 
@@ -37,6 +38,17 @@ for url in $urls; do
 
     if [[ "$response" =~ "$payload" ]]; then
       echo -e "${RED}Payload: $payload - Vulnerable${NC}"
+      vulnerable=true
+      break
+    fi
+  done
+
+  for header in "${headers[@]}"; do
+    # Send a request with additional headers and check the response
+    response=$(curl -s -I -H "$header" "$url")
+
+    if [[ "$response" =~ "malicious.com" ]]; then
+      echo -e "${RED}Header: $header - Vulnerable${NC}"
       vulnerable=true
       break
     fi
