@@ -13,7 +13,7 @@ The script will go over each URL, send a request with a modified host header ("H
 Note:
 chmod +x HostHeaderInj.sh
 
-**Run**
+**Run:**
 To run the script do use this command:
 ```
   # Test a single URL
