@@ -4,6 +4,12 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
+# Display author name
+echo -e "Author: ${RED}Security Bong${NC}"
+echo ""
+
+# Rest of the script goes here...
+
 if [ -z "$1" ]; then
   echo "Please provide a URL or a file containing URLs."
   exit 1
