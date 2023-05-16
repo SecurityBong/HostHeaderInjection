@@ -37,7 +37,7 @@ for url in $urls; do
     response=$(curl -s -I -H "Host: $payload" "$url")
 
     if [[ "$response" =~ "$payload" ]]; then
-      echo -e "${RED}Payload: $payload - Vulnerable${NC}"
+      echo -e "${RED}Host Header: Host: $payload - Vulnerable${NC}"
       vulnerable=true
       break
     fi
@@ -48,7 +48,7 @@ for url in $urls; do
     response=$(curl -s -I -H "$header" "$url")
 
     if [[ "$response" =~ "malicious.com" ]]; then
-      echo -e "${RED}Header: $header - Vulnerable${NC}"
+      echo -e "${RED}Additional Header: $header - Vulnerable${NC}"
       vulnerable=true
       break
     fi
