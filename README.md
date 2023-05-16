@@ -11,7 +11,7 @@ It is only applicable to HTTPS. It is still in developement phase.
 The script will go over each URL, send a request with a modified host header ("Host: malicious.com"), and check if the response contains the modified host. If it does, it will print "Vulnerable" in red color; otherwise, it will print "Not Vulnerable" in green color.
 
 Note:
-chmod +x chmod +x
+chmod +x HostHeaderInj.sh
 
 **Run**
 To run the script do use this command:
